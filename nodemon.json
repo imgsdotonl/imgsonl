@@ -15,7 +15,7 @@
   ],
   "env": {
     "NODE_ENV": "development",
-    "DEBUG": "boldrAPI:*"
+    "DEBUG": "imgs:*"
   },
   "ext": "js json",
   "exec": "babel-node src/api/index.js"

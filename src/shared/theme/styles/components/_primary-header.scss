@@ -1,0 +1,16 @@
+
+.boldr__theme-header{
+
+}
+.ph-menu__item-link {
+  color: $navy;
+
+  &:hover {
+    color: $pinkish;
+  }
+}
+.ph-logo {
+  height: 45px;
+  vertical-align: middle;
+  align-self: center;
+}

@@ -1,0 +1,189 @@
+{
+  "name": "imgsonl",
+  "version": "0.2.0",
+  "description": "",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imgsdotonl/imgsonl.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imgsdotonl/imgsonl/issues"
+  },
+  "homepage": "https://github.com/imgsdotonl/imgsonl#readme",
+  "engines": {
+    "node": ">=7.0.0",
+    "npm": ">=3.0.0",
+    "yarn": "^0.17.0"
+  },
+  "betterScripts": {
+    "dev": {
+      "command": "babel-node ./tools/development",
+      "env": {
+        "DEBUG": "imgs:*",
+        "NODE_ENV": "development",
+        "BABEL_ENV": "development"
+      }
+    }
+  },
+  "scripts": {
+    "analyze": "babel-node tools/scripts/analyze",
+    "build": "babel-node tools/scripts/build",
+    "clean": "babel-node tools/scripts/clean",
+    "dev": "better-npm-run dev",
+    "development": "babel-node tools/development",
+    "lint": "eslint src",
+    "flow": "babel-node tools/scripts/flow",
+    "flow:defs": "flow-typed install --overwrite",
+    "flow:report": "flow-coverage-report -i 'src/**/*.js' -t html -t json -t text",
+    "flow:remove": "babel-node tools/scripts/removeFlow && rimraf tools/scripts/removeFlow.js",
+    "start": "NODE_ENV=production node bin/run.js",
+    "test:ci": "NODE_ENV=test CI=true jest -w 2",
+    "test": "NODE_ENV=test BABEL_ENV=test jest",
+    "test:watch": "NODE_ENV=test jest --watch=all"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tools/test/styleMock.js",
+      "^.+\\.(css|scss)$": "<rootDir>/tools/test/styleMock.js"
+    },
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/tools/",
+      "<rootDir>/config/",
+      "<rootDir>/docs/",
+      "/flow-typed/",
+      "<rootDir>/bin/",
+      "<rootDir>/Imgs/",
+      "/node_modules/",
+      "/.happypack/",
+      "<rootDir>/public/",
+      "<rootDir>/src/client/",
+      "<rootDir>/src/shared/theme/",
+      "<rootDir>/src/server/"
+    ],
+    "transform": {
+      ".*": "<rootDir>/node_modules/babel-jest"
+    },
+    "testPathDirs": [
+      "<rootDir>/src"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/tools/test/setup.js",
+    "testPathIgnorePatterns": [
+      "<rootDir>/(tools|docs|node_modules|bin|flow-typed|public)/"
+    ],
+    "transformIgnorePatterns": [
+      "/node_modules/",
+      "/Imgs/"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "text",
+      "text-summary"
+    ]
+  },
+  "dependencies": {
+    "app-root-dir": "1.0.2",
+    "bluebird": "^3.4.7",
+    "body-parser": "^1.15.2",
+    "busboy": "^0.2.13",
+    "classnames": "^2.2.5",
+    "colors": "1.1.2",
+    "compression": "^1.6.2",
+    "connect-busboy": "^0.0.2",
+    "cors": "^2.8.1",
+    "dotenv": "2.0.0",
+    "express": "4.14.0",
+    "fs-extra": "^1.0.0",
+    "gm": "^1.23.0",
+    "helmet": "3.2.0",
+    "hpp": "0.2.1",
+    "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.3",
+    "material-ui": "0.16.6",
+    "method-override": "^2.3.7",
+    "mongoose": "^4.7.5",
+    "morgan": "^1.7.0",
+    "ramda": "^0.23.0",
+    "raven": "^1.1.1",
+    "react": "15.4.1",
+    "react-addons-css-transition-group": "^15.4.1",
+    "react-addons-transition-group": "^15.4.1",
+    "react-copy-to-clipboard": "^4.2.3",
+    "react-dom": "15.4.1",
+    "react-dropzone": "^3.8.0",
+    "react-ga": "^2.1.2",
+    "react-helmet": "3.3.0",
+    "react-redux": "5.0.1",
+    "react-router": "^3.0.0",
+    "react-router-redux": "^4.0.7",
+    "react-router-scroll": "^0.4.1",
+    "react-tap-event-plugin": "^2.0.1",
+    "redial": "^0.5.0",
+    "redux": "^3.6.0",
+    "redux-form": "^6.4.1",
+    "redux-form-material-ui": "^4.1.2",
+    "redux-thunk": "^2.1.0",
+    "request": "^2.79.0",
+    "serialize-javascript": "1.3.0",
+    "shortid": "^2.2.6",
+    "styled-components": "^1.2.1",
+    "superagent": "^3.3.1",
+    "uuid": "^3.0.1",
+    "webfontloader": "^1.6.27"
+  },
+  "devDependencies": {
+    "assets-webpack-plugin": "3.5.0",
+    "babel-cli": "6.18.0",
+    "babel-jest": "^18.0.0",
+    "babel-loader": "6.2.10",
+    "babel-preset-boldr": "0.7.2",
+    "babel-preset-env": "1.1.4",
+    "better-npm-run": "^0.0.13",
+    "chokidar": "1.6.1",
+    "css-loader": "0.26.1",
+    "cz-conventional-changelog": "^1.2.0",
+    "enzyme": "^2.7.0",
+    "enzyme-to-json": "^1.4.5",
+    "eslint": "3.12.2",
+    "eslint-config-boldr": "0.7.1",
+    "extract-text-webpack-plugin": "2.0.0-beta.4",
+    "file-loader": "0.9.0",
+    "flow-bin": "0.37.4",
+    "flow-coverage-report": "0.2.0",
+    "flow-remove-types": "1.1.2",
+    "flow-typed": "2.0.0",
+    "glob": "7.1.1",
+    "happypack": "3.0.2",
+    "html-webpack-plugin": "2.24.1",
+    "jest-cli": "^18.0.0",
+    "md5": "2.2.1",
+    "node-notifier": "4.6.1",
+    "node-sass": "^4.1.1",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^3.1.2",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-loader": "^1.2.1",
+    "react-addons-test-utils": "^15.4.1",
+    "react-hot-loader": "3.0.0-beta.6",
+    "redux-mock-store": "^1.2.1",
+    "rimraf": "2.5.4",
+    "sass-loader": "^4.1.1",
+    "sinon": "^1.17.6",
+    "source-map-support": "0.4.8",
+    "style-loader": "0.13.1",
+    "supertest": "^2.0.1",
+    "supertest-as-promised": "^4.0.2",
+    "webpack": "2.2.0-rc.3",
+    "webpack-bundle-analyzer": "2.2.1",
+    "webpack-dev-middleware": "1.9.0",
+    "webpack-hot-middleware": "2.14.0",
+    "webpack-md5-hash": "0.0.5",
+    "webpack-node-externals": "1.5.4"
+  }
+}
